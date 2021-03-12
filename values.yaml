@@ -158,13 +158,14 @@ server:
     labels: {}
     annotations:
       certmanager.k8s.io/cluster-issuer: le-anna-infra
+      nginx.ingress.kubernetes.io/whitelist-source-range: 35.242.166.32, 35.197.205.48, 35.189.90.87, 35.242.190.241, 10.96.0.0/14, 35.246.87.89
     hosts:
-      - host: vault-gcp.infra.anna.money
+      - host: vault.infra.anna.money
 
     tls:
      - secretName: vault-tls
        hosts:
-         - vault-gcp.infra.anna.money
+         - vault.infra.anna.money
 
   # OpenShift only - create a route to expose the service
   # The created route will be of type passthrough
